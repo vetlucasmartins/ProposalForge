@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     template: "%s | ProposalForge",
   },
   description:
-    "ProposalForge turns a qualified client brief into a structured commercial proposal.",
+    "ProposalForge is a public portfolio mockup for turning a client brief into a structured commercial proposal preview.",
 };
 
 export default function RootLayout({
