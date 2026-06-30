@@ -1,53 +1,28 @@
-# ADR 0001: Architecture Baseline
+# ADR 0001: Portfolio Mockup Baseline
 
 ## Status
 
-Accepted as initial planning baseline.
+Accepted
 
 ## Context
 
-ProposalForge needs to be a public, portfolio-ready B2B SaaS project. It combines authenticated user workflows, proposal editing, LLM-assisted document generation, pricing calculation, PDF export, public sharing and simple acceptance.
-
-The project needs a structure that is easy to review, avoids unnecessary enterprise complexity and keeps sensitive operations server-side.
+ProposalForge is a public GitHub portfolio project. It needs to be visible, easy to run and honest about scope. A hosted backend, authentication provider and production database would add operational burden that is not necessary for demonstrating the product idea.
 
 ## Decision
 
-Use a modular Next.js App Router architecture with Supabase as the backend platform.
+Use a static Next.js App Router mockup with local TypeScript data and an optional SQLite schema. The app must run without external services, real credentials or provisioned infrastructure.
 
-Core decisions:
+The baseline includes:
 
-- Next.js App Router for authenticated dashboard routes, public proposal pages and server-side actions.
-- TypeScript across the application.
-- Supabase Auth for user identity.
-- Supabase Postgres with RLS for proposal data.
-- Supabase Storage for generated PDFs.
-- Domain modules under `features/`.
-- Server-only integrations under `server/`.
-- LLM provider isolated behind an adapter.
-- Proposal data stored as structured records, not only generated Markdown.
-- Public sharing implemented through unguessable share tokens and limited read models.
+- Next.js and TypeScript for the UI.
+- Static mock proposal data in source control.
+- Zod schemas and pure domain services for validation examples.
+- SQLite SQL files for local data modeling only.
+- Documentation that labels auth, persistence, LLM generation and PDF export as future work.
 
 ## Consequences
 
-Positive:
-
-- Clear separation between UI, domain logic and external providers.
-- Public pages can be optimized without exposing private dashboard data.
-- Supabase RLS provides a strong baseline for multi-user data isolation.
-- The LLM provider can be swapped later with limited changes.
-- The app remains understandable for portfolio review.
-
-Tradeoffs:
-
-- Supabase policies must be carefully tested.
-- PDF rendering needs deterministic saved data and storage metadata.
-- Structured proposal storage requires more schema design than saving a single document blob.
-- Prompt versioning adds process overhead, but improves debugging.
-
-## Revisit When
-
-- Team permissions are added.
-- Payments or subscriptions are added.
-- Legally stronger e-signature requirements appear.
-- Multiple LLM providers become a user-facing feature.
-- Proposal versioning becomes mandatory.
+- Reviewers can run the project immediately.
+- The repository is safer for public portfolio use because it does not need secrets.
+- SQLite keeps the data model inspectable without requiring a hosted service.
+- Future production work will need separate architecture decisions for auth, persistence, file storage and authorization.

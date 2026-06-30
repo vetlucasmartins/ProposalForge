@@ -27,9 +27,10 @@ pnpm-debug.log*
 .vercel/
 .turbo/
 
-# Supabase local state
-supabase/.branches/
-supabase/.temp/
+# Local SQLite experiments
+*.db
+*.sqlite
+*.sqlite3
 
 # OS
 .DS_Store

@@ -2,7 +2,7 @@
 
 ## Design Rules
 
-- Validate every input with schemas before touching the database.
+- Validate every input with schemas before touching a future runtime database.
 - Never accept `owner_id`, totals or status timestamps from the browser.
 - Use a consistent response envelope for route handlers.
 - Prefer server actions for authenticated dashboard mutations.
@@ -27,7 +27,7 @@ type ApiResponse<T> =
     }
 ```
 
-## Authenticated Contracts
+## Future Authenticated Contracts
 
 ### `POST /api/proposals/generate`
 

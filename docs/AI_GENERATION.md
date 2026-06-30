@@ -15,7 +15,7 @@ The LLM should produce a useful first draft, not become the source of truth. Pro
 7. Parse the response as JSON.
 8. Validate the JSON against the proposal draft schema.
 9. Sanitize Markdown content.
-10. Persist sections, deliverables, milestones, pricing and generation metadata.
+10. Persist sections, deliverables, milestones, pricing and generation metadata in a future runtime implementation.
 
 ## Prompt Inputs
 
@@ -114,7 +114,7 @@ If validation fails:
 - Treat LLM output as untrusted.
 - Escape or sanitize Markdown before rendering.
 - Never let the LLM decide final owner, status, total amount or share token.
-- Never send service-role credentials or private database data to the LLM.
+- Never send credentials or private database data to the LLM.
 - Log provider errors without exposing secrets.
 - Use rate limits to avoid accidental generation loops.
 

@@ -1,5 +1,6 @@
 import { DashboardShell } from "@/components/layout/dashboard-shell";
 import { PageHeader } from "@/components/layout/page-header";
+import { briefingDefaults } from "@/data/mock-proposals";
 
 const serviceOptions = [
   { value: "discovery", label: "Discovery" },
@@ -19,8 +20,8 @@ export default function NewProposalPage() {
     <DashboardShell>
       <PageHeader
         eyebrow="Briefing"
-        title="New proposal"
-        description="Capture the client context needed for scope, pricing and draft generation."
+        title="Mock briefing"
+        description="A prefilled static form that shows the intended proposal creation flow without persistence."
       />
 
       <form className="grid gap-6" aria-label="Proposal briefing form">
@@ -29,19 +30,35 @@ export default function NewProposalPage() {
             <label className={labelClassName} htmlFor="client-name">
               Client name
             </label>
-            <input id="client-name" name="clientName" className={inputClassName} />
+            <input
+              id="client-name"
+              name="clientName"
+              className={inputClassName}
+              defaultValue={briefingDefaults.clientName}
+            />
           </div>
           <div className="grid gap-2">
             <label className={labelClassName} htmlFor="client-email">
               Client email
             </label>
-            <input id="client-email" name="clientEmail" type="email" className={inputClassName} />
+            <input
+              id="client-email"
+              name="clientEmail"
+              type="email"
+              className={inputClassName}
+              defaultValue={briefingDefaults.clientEmail}
+            />
           </div>
           <div className="grid gap-2">
             <label className={labelClassName} htmlFor="client-type">
               Client type
             </label>
-            <select id="client-type" name="clientType" className={inputClassName} defaultValue="">
+            <select
+              id="client-type"
+              name="clientType"
+              className={inputClassName}
+              defaultValue={briefingDefaults.clientType}
+            >
               <option value="" disabled>
                 Select client type
               </option>
@@ -58,7 +75,12 @@ export default function NewProposalPage() {
             <label className={labelClassName} htmlFor="template">
               Template
             </label>
-            <select id="template" name="template" className={inputClassName} defaultValue="">
+            <select
+              id="template"
+              name="template"
+              className={inputClassName}
+              defaultValue={briefingDefaults.template}
+            >
               <option value="" disabled>
                 Select template
               </option>
@@ -76,13 +98,25 @@ export default function NewProposalPage() {
             <label className={labelClassName} htmlFor="problem">
               Client problem
             </label>
-            <textarea id="problem" name="problem" rows={4} className={inputClassName} />
+            <textarea
+              id="problem"
+              name="problem"
+              rows={4}
+              className={inputClassName}
+              defaultValue={briefingDefaults.problem}
+            />
           </div>
           <div className="grid gap-2">
             <label className={labelClassName} htmlFor="objective">
               Desired outcome
             </label>
-            <textarea id="objective" name="objective" rows={4} className={inputClassName} />
+            <textarea
+              id="objective"
+              name="objective"
+              rows={4}
+              className={inputClassName}
+              defaultValue={briefingDefaults.objective}
+            />
           </div>
           <fieldset className="grid gap-3">
             <legend className={labelClassName}>Services</legend>
@@ -97,6 +131,7 @@ export default function NewProposalPage() {
                     name="services"
                     value={service.value}
                     className="size-4 accent-[var(--accent)]"
+                    defaultChecked={briefingDefaults.services.includes(service.value)}
                   />
                   {service.label}
                 </label>
@@ -116,6 +151,7 @@ export default function NewProposalPage() {
               type="number"
               min="0"
               className={inputClassName}
+              defaultValue={briefingDefaults.budgetMin}
             />
           </div>
           <div className="grid gap-2">
@@ -128,31 +164,50 @@ export default function NewProposalPage() {
               type="number"
               min="0"
               className={inputClassName}
+              defaultValue={briefingDefaults.budgetMax}
             />
           </div>
           <div className="grid gap-2">
             <label className={labelClassName} htmlFor="deadline">
               Deadline
             </label>
-            <input id="deadline" name="deadline" type="date" className={inputClassName} />
+            <input
+              id="deadline"
+              name="deadline"
+              type="date"
+              className={inputClassName}
+              defaultValue={briefingDefaults.deadline}
+            />
           </div>
           <div className="grid gap-2 md:col-span-3">
             <label className={labelClassName} htmlFor="constraints">
               Constraints
             </label>
-            <textarea id="constraints" name="constraints" rows={3} className={inputClassName} />
+            <textarea
+              id="constraints"
+              name="constraints"
+              rows={3}
+              className={inputClassName}
+              defaultValue={briefingDefaults.constraints}
+            />
           </div>
           <div className="grid gap-2 md:col-span-3">
             <label className={labelClassName} htmlFor="raw-notes">
               Internal notes
             </label>
-            <textarea id="raw-notes" name="rawNotes" rows={3} className={inputClassName} />
+            <textarea
+              id="raw-notes"
+              name="rawNotes"
+              rows={3}
+              className={inputClassName}
+              defaultValue={briefingDefaults.rawNotes}
+            />
           </div>
         </section>
 
         <div className="flex flex-col gap-3 border border-[var(--line)] bg-[var(--surface)] p-5 sm:flex-row sm:items-center sm:justify-between">
           <p className="max-w-2xl text-sm leading-6 text-[color:var(--muted)]">
-            Persistence and AI generation are not connected in this foundation step.
+            This is a visible mockup. The form is intentionally not connected to SQLite or an API.
           </p>
           <button
             type="button"

@@ -6,6 +6,8 @@ ProposalForge is a B2B proposal generator for freelancers and small agencies. It
 
 The product is useful as both a portfolio project and a practical sales tool. It demonstrates document generation, AI applied to sales operations, SaaS UX, pricing logic and public document sharing.
 
+This repository currently implements the portfolio mockup version only. The full SaaS behaviors below describe product direction, not finished runtime features.
+
 ## Audience
 
 Primary users:
@@ -78,7 +80,7 @@ Each template should define suggested sections, default deliverables, timeline r
 | Public proposal open rate | 70%+ | Sent proposals with at least one public view |
 | Acceptance conversion | Tracked by template | Accepted proposals divided by sent proposals |
 
-## MVP Scope
+## Future Product Scope
 
 The MVP should include:
 

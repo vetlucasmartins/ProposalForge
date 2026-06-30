@@ -44,7 +44,7 @@ test: cover pricing rush multiplier
 Update:
 
 - `docs/ARCHITECTURE.md` when source structure or service boundaries change.
-- `docs/DATABASE.md` when migrations or RLS policies change.
+- `docs/DATABASE.md` when the SQLite schema changes.
 - `docs/API.md` when routes, server actions or response contracts change.
 - `docs/AI_GENERATION.md` when prompts, schemas or provider behavior change.
 - `README.md` when setup, status or user-facing capabilities change.

@@ -2,18 +2,19 @@
 
 ## Current Implementation Status
 
-The current codebase contains a Phase 1 foundation subset:
+The current codebase contains a portfolio mockup foundation:
 
 - Next.js App Router, TypeScript, Tailwind and validation scripts are configured.
-- Supabase browser/server clients and environment validation are prepared without real credentials.
+- Static mock data is used for the visible UI.
+- Optional SQLite schema and seed files document the local data shape.
 - Initial Zod schemas and pure services exist for briefings, pricing, proposal statuses and generated proposal draft validation.
 - Unit tests cover pricing, status transitions and LLM draft parsing.
-- Minimal home, dashboard and new proposal briefing pages exist.
+- Home, dashboard and new proposal briefing pages are visible and populated with demo data.
 
 Still pending from the broader Phase 1/2 plan:
 
-- Auth pages and Supabase Auth flow.
-- Database migrations, seed data and RLS policy tests.
+- Real authentication.
+- Runtime database persistence.
 - Proposal persistence, generation routes/actions and PDF/public sharing flows.
 
 ## Phase 1: Foundation
@@ -22,31 +23,29 @@ Deliverables:
 
 - Next.js App Router project with TypeScript and Tailwind.
 - Strict linting, formatting and type-checking.
-- Supabase client setup for browser and server.
-- Environment validation.
-- Basic layout, dashboard shell and auth pages.
+- Static mock proposal data.
+- Basic layout, dashboard shell and mock briefing page.
 
 Acceptance criteria:
 
 - App runs locally.
 - Type-check and lint pass.
-- Environment variables fail fast with clear errors.
+- App does not require credentials for the portfolio demo.
 - No secrets are committed.
 
-## Phase 2: Data Model and Auth
+## Phase 2: Local Data Model
 
 Deliverables:
 
-- Supabase migrations for core tables.
-- RLS policies for user-owned proposal data.
-- Seed data for initial templates.
-- Profile creation flow.
+- SQLite schema for core proposal tables.
+- Seed data for portfolio examples.
+- Documentation that explains the mock data model.
 
 Acceptance criteria:
 
-- Authenticated users can only access their own proposals.
-- Anonymous users cannot query private proposal data.
-- Template seed data is available to authenticated users.
+- SQLite schema and seed can be loaded locally.
+- No production customer data is included.
+- Documentation matches the schema.
 
 ## Phase 3: Briefing and Proposal Drafts
 
@@ -87,7 +86,7 @@ Deliverables:
 - Public proposal page.
 - Share token creation.
 - PDF renderer.
-- Supabase Storage integration.
+- Optional file storage integration.
 - Acceptance form.
 
 Acceptance criteria:
@@ -121,7 +120,7 @@ Acceptance criteria:
 | Pricing service | Unit | Base price, multipliers, rush fee and budget range. |
 | Proposal statuses | Unit | Allowed and blocked transitions. |
 | AI parser | Unit | Valid JSON, malformed JSON and validation failures. |
-| Supabase policies | Integration | Owner access, non-owner denial and public token access. |
+| SQLite schema | Schema smoke | Tables and seed data load locally. |
 | Proposal flow | E2E | Briefing to generated draft to sent proposal. |
 | Acceptance flow | E2E | Public page to accepted status. |
 
@@ -131,6 +130,6 @@ Acceptance criteria:
 - Inputs are schema-validated.
 - Errors are handled explicitly.
 - Tests cover the risky behavior.
-- RLS policy exists for all affected tables.
+- SQLite schema and docs are updated for data-shape changes.
 - UI works on desktop and mobile.
 - No generated or secret files are committed.

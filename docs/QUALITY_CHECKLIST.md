@@ -7,7 +7,7 @@ Use this checklist before publishing the repository or opening a pull request.
 - README explains the product in one minute.
 - Repository status is accurate.
 - Setup commands match the actual project.
-- `.env.example` lists required variables without real values.
+- `.env.example` lists demo-safe variables without real values.
 - No API keys, tokens, private URLs or customer data are committed.
 - License is chosen before open-source publication.
 - Screenshots or demo assets are added only after real UI exists.
@@ -23,13 +23,12 @@ Use this checklist before publishing the repository or opening a pull request.
 
 ## Data and Security
 
-- Supabase RLS is enabled on every public table.
-- Policies are tested for owner access and non-owner denial.
-- Service-role keys are server-only.
-- Public acceptance is rate-limited.
-- IP addresses are hashed or redacted before storage.
-- LLM logs avoid sensitive data.
-- User input is sanitized before rendering.
+- The mockup does not require production secrets.
+- SQLite seed data contains no real customer data.
+- Future server-only credentials are not exposed through `NEXT_PUBLIC_*`.
+- Public acceptance and auth are documented as future work, not implemented.
+- LLM logs avoid sensitive data if generation is added later.
+- User input is sanitized before rendering if runtime input is added later.
 
 ## UX
 
@@ -43,9 +42,9 @@ Use this checklist before publishing the repository or opening a pull request.
 ## Testing
 
 - Unit tests cover pricing and status transitions.
-- Integration tests cover database policies and route handlers.
-- Playwright covers create, generate, edit, share and accept flow.
-- PDF export has at least one smoke test.
+- Integration tests are added only after runtime persistence exists.
+- Playwright can cover the static mockup routes.
+- PDF export tests are future work.
 - LLM parsing has malformed-output tests.
 - Type-check, lint and test commands pass before merge.
 
@@ -53,7 +52,7 @@ Use this checklist before publishing the repository or opening a pull request.
 
 - Product spec reflects implemented scope.
 - Architecture doc reflects actual source structure.
-- Database doc matches migrations.
-- API doc matches route handlers and server actions.
+- Database doc matches the SQLite schema.
+- API doc clearly labels future route handlers and server actions.
 - AI generation doc matches prompt versions.
 - Implementation plan is updated as phases complete.
