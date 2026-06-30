@@ -2,7 +2,7 @@
   "name": "proposalforge",
   "version": "0.1.0",
   "private": true,
-  "description": "AI-assisted commercial proposal generator for freelancers and small agencies.",
+  "description": "Portfolio mockup for a commercial proposal workspace built with Next.js and static demo data.",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
