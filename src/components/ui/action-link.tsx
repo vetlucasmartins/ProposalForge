@@ -1,17 +1,13 @@
 import Link from "next/link";
 import type { Route } from "next";
 
-type ActionLinkProps<T extends string> = {
-  href: Route<T>;
+type ActionLinkProps = {
+  href: Route;
   children: React.ReactNode;
   variant?: "primary" | "secondary";
 };
 
-export function ActionLink<T extends string>({
-  href,
-  children,
-  variant = "primary",
-}: ActionLinkProps<T>) {
+export function ActionLink({ href, children, variant = "primary" }: ActionLinkProps) {
   const variantClassName = variant === "primary" ? "pf-action-primary" : "pf-action-secondary";
 
   return (

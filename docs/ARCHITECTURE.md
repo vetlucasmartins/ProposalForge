@@ -38,17 +38,6 @@ src/
     layout/
   data/
     mock-proposals.ts
-  features/
-    briefings/
-    proposals/
-    pricing/
-  server/
-    ai/
-  lib/
-  tests/
-sqlite/
-  schema.sql
-  seed.sql
 ```
 
 ## Feature Boundaries
@@ -58,10 +47,10 @@ sqlite/
 | `app` | Route composition and page-level UI. | Runtime persistence. |
 | `components` | Shared layout and UI primitives. | Business rules. |
 | `data` | Static portfolio mock data. | Real customer data. |
-| `briefings` | Briefing schema and validation. | LLM calls or PDF rendering. |
-| `proposals` | Proposal status rules. | Auth implementation details. |
-| `pricing` | Scope-based pricing calculations. | Proposal copy generation. |
-| `server/ai` | Generated draft parsing and validation examples. | Provider credentials. |
+
+The briefing/pricing/proposal-status/AI-draft domain modules are documented under
+`docs/` (PRICING, DATABASE, AI_GENERATION) as the proposed design for a future
+build-out; they are not present in the current static demo.
 
 ## Route Map
 
@@ -108,10 +97,6 @@ Those concerns are intentionally not wired into the current public demo.
 
 ## Testing Strategy
 
-Current test coverage should focus on:
-
-- Pricing rule calculations.
-- Proposal status transition rules.
-- LLM JSON parsing and validation failures.
-
-Future tests can add Playwright coverage for the visible mockup routes and integration tests if runtime persistence is introduced.
+The current demo is static UI with no domain logic, so it ships no automated tests.
+When domain logic is built (pricing, status rules, draft parsing), add unit tests
+alongside it, and Playwright coverage for the visible routes once behavior exists to assert.

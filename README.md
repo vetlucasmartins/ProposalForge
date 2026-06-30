@@ -11,12 +11,10 @@ Implemented:
 - Static Next.js App Router UI.
 - Mock dashboard with sample proposal pipeline data.
 - Prefilled briefing form mockup.
-- Core TypeScript/Zod domain code for briefings, pricing, generated draft validation and proposal status rules.
-- Unit tests for critical pure logic.
-- Optional SQLite schema and seed files under [`sqlite/`](sqlite/) for local experimentation.
 
 Not implemented:
 
+- Domain logic (briefings, pricing, draft validation, status rules).
 - Real authentication.
 - Runtime database reads/writes.
 - LLM calls.
@@ -30,9 +28,6 @@ Not implemented:
 - React
 - TypeScript
 - Tailwind CSS
-- Zod
-- Vitest
-- SQLite SQL files for optional local data modeling
 
 ## Local Setup
 
@@ -46,25 +41,11 @@ Open [http://localhost:3000](http://localhost:3000).
 
 The app runs with the default `.env.example` values. No real credentials are needed.
 
-## SQLite
-
-SQLite is included only as a lightweight local schema reference for the portfolio project. The current UI does not open a database connection.
-
-Optional local experiment:
-
-```bash
-sqlite3 proposalforge.db < sqlite/schema.sql
-sqlite3 proposalforge.db < sqlite/seed.sql
-```
-
-The SQLite files model templates, proposals, briefs, proposal sections, line items and events. They are intentionally small so reviewers can understand the data shape without provisioning external services.
-
 ## Validation Commands
 
 ```bash
 npm run lint
 npm run typecheck
-npm test
 npm run build
 npm audit
 ```
@@ -73,10 +54,10 @@ npm audit
 
 - [`docs/PRODUCT_SPEC.md`](docs/PRODUCT_SPEC.md): Product goals and user stories.
 - [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md): Current mockup architecture.
-- [`docs/DATABASE.md`](docs/DATABASE.md): SQLite data model.
+- [`docs/DATABASE.md`](docs/DATABASE.md): Proposed data model (not implemented).
 - [`docs/API.md`](docs/API.md): Future API contract notes.
 - [`docs/AI_GENERATION.md`](docs/AI_GENERATION.md): Future generation workflow notes.
-- [`docs/PRICING.md`](docs/PRICING.md): Pricing calculation model.
+- [`docs/PRICING.md`](docs/PRICING.md): Proposed pricing calculation model (not implemented).
 - [`docs/IMPLEMENTATION_PLAN.md`](docs/IMPLEMENTATION_PLAN.md): Portfolio-first implementation phases.
 - [`docs/QUALITY_CHECKLIST.md`](docs/QUALITY_CHECKLIST.md): Public repository checklist.
 
@@ -89,7 +70,7 @@ npm audit
 
 ## Portfolio Scope
 
-ProposalForge is designed to be readable, visible and easy to review on GitHub. It demonstrates product structure, UI direction, validation, test coverage and a simple data model without pretending to be a finished SaaS.
+ProposalForge is designed to be readable, visible and easy to review on GitHub. It demonstrates product structure and UI direction without pretending to be a finished SaaS. The `docs/` folder captures the intended domain, data and pricing design as a spec for future build-out.
 
 ## License
 
